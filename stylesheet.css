@@ -1,0 +1,205 @@
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.logo{
+    position: absolute;
+    left: 7%;
+    top: 3%;
+    bottom: 0%;
+    }
+
+    .logo:hover{
+        cursor: pointer;
+    }
+
+.buttons{
+ display: flex;
+ flex-direction: column;
+}
+
+.startpoint{
+    margin-bottom: 1%;
+    background: #0A3871;
+    border-radius: 24px;
+    color: white;
+    width: 310px;
+    height: 114px;
+    text-align: center;
+    margin-bottom: 10%;
+    font-size: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+
+}
+
+    .startpoint:hover{
+        cursor: pointer;
+        color: goldenrod;
+    }
+
+
+.addword{
+margin-top: 1%;
+background: white;
+border-radius: 24px;
+color: #0A3871;
+border-color: #0A3871;
+width: 302px;
+height: 65px;
+text-align: center;
+font-size: 17px;
+font-family: 'Inter';
+font-style: normal;
+}
+
+    .addword:hover{
+        cursor: pointer;
+        color: goldenrod;
+    }
+
+
+/* SAVE_WORD_PART*/
+
+    .add-word-part{
+        display: none;
+        
+    }
+
+    
+
+    .word-adder,#addinword{
+        align-items: center;
+        resize: none;
+        background: transparent;
+        border: none;
+        font-family: 'Inter';
+        font-style: normal;
+        font-size: 40px;
+        color: #0A3871;
+        outline: none;
+        margin-top: 7%;
+    }
+
+
+    .buttons2{
+
+    }
+
+
+        .playn-save{
+            background: #0A3871;
+            border-radius: 24px;
+            color: white;
+            width: 332px;
+            height: 67px;
+            text-align: center;
+            margin-bottom: 10%;
+            font-size: 16px;
+            font-weight: 400;
+            font-family: 'Inter';
+            font-style: normal;
+
+        }
+
+            .playn-save:hover{
+                cursor: pointer;
+                color: goldenrod;
+            }
+
+        .goback{
+            background: white;
+            border-radius: 24px;
+            color: #0A3871;
+            width: 332px;
+            height: 67px;
+            text-align: center;
+            margin-bottom: 10%;
+            font-size: 16px;
+            font-weight: 400;
+            font-family: 'Inter';
+            font-style: normal;
+        }
+            .goback:hover{
+                cursor: pointer;
+                color: goldenrod;
+            }
+
+
+    /* GAME_PART */
+
+.game{
+    display: none;
+    flex-direction: column;
+}
+
+#game-image{
+    justify-content: center;
+    align-items: center;
+}
+
+#letter-game{
+    align-items: center;
+    resize: none;
+    background: transparent;
+    border: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 40px;
+    color: #0A3871;
+    outline: none;
+    margin-top: 7%;
+}
+
+.newGame{
+    background: #0A3871;
+    border-radius: 24px;
+    color: white;
+    width: 332px;
+    height: 67px;
+    text-align: center;
+    margin-bottom: 10%;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Inter';
+    font-style: normal;
+
+}
+
+    .newGame:hover{
+        cursor: pointer;
+        color: goldenrod;
+    }
+
+.Return{
+    background: white;
+    border-radius: 24px;
+    color: #0A3871;
+    width: 332px;
+    height: 67px;
+    text-align: center;
+    margin-bottom: 10%;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Inter';
+    font-style: normal;
+}
+    .Return:hover{
+        cursor: pointer;
+        color: goldenrod;
+    }
+
+    

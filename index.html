@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Home - Juego ahorcado</title>
+        <link rel="stylesheet" href="reset.css" media="screen">
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        
+        <main>
+        <div class="logo-head"> 
+        <img src="Vector.png" alt="Alura-logo" class="logo">
+        </div> 
+
+            <div class="main-menu" id="menu">
+                <div class="buttons">
+                    <input type="button" value="Comenzar" class="startpoint" id="play-game">
+                    <input type="button" value="Añadir Palabra" class="addword" id="add-word-db">
+                </div>
+            </div>
+
+            <div class="add-word-part" id="addword">
+
+                <div class="word-adder">
+                    <textarea name="Add-word" id="addinword" cols="40" rows="20" placeholder="Ingrese una palabra..." spellcheck="false"></textarea>
+                </div>
+
+                <div class="buttons2">
+                    <input type="button" value="Guardar y empezar" class="playn-save" id="save-play">
+                    <input type="button" value="Cancelar" class="goback" id="go-back">
+
+                </div>
+
+            </div>
+
+            <div class="game">
+
+                <div class="imagen">
+
+                </div>
+
+                <div class="letter-adder">
+                    <textarea name="letter-adder" id="letter-game" cols="40" rows="20" placeholder="Ingrese una letra..." spellcheck="false"></textarea>
+                </div>   
+
+                <div class="buttons3">
+                    <input type="button" value="Nuevo juego" class="newGame" id="new-game">
+                    <input type="button" value="Volver" class="Return" id="re-turn">
+                </div>
+
+
+            </div>
+        
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>
