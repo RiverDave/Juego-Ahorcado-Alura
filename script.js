@@ -4,6 +4,7 @@ const word_page = document.querySelector(".add-word-part");
 const game = document.querySelector(".game");
 const words = ["Escribir","Programar","Dedicacion","Estudiar"];
 const word_adder = document.querySelector("#addinword");
+const letter_adder = document.querySelector("#letter-game");
 
 
 //BUTTONS
@@ -29,6 +30,7 @@ function referStartGame(){
     main_menu.style.display="none";
     word_page.style.display="none";
     game.style.display="flex";
+    letter_adder.value = words[Math.floor(Math.random()*words.length)]
 }
 function referAddword(){
     main_menu.style.display="none";
@@ -50,6 +52,12 @@ function pushword(newword){
 words.push(newword);
 
 }
+
+// Key listener
+
+
+
+
 
 
 

@@ -144,24 +144,50 @@ font-style: normal;
 .game{
     display: none;
     flex-direction: column;
+    margin-top: 25%;
 }
 
-#game-image{
+.imagen{
+
+    display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+}
+.imagen img {
+    width: 50%;
 }
 
-#letter-game{
+
+.Word{
+display: flex;
+justify-content: center;
+display: flex;
+    justify-content: center;
+    margin: 1.5rem;
+    font-size: 3rem;
+    gap: 1rem;
+}
+
+
+.misses{
+display: flex;
+justify-content: center;
+text-align: center;
+font-weight: bold;
+padding: 2rem;
+font-size: 3rem;
+
+}
+
+    .misses p{
+        opacity: 0.5;
+    }
+
+.buttons3{
+    display: flex;
     align-items: center;
-    resize: none;
-    background: transparent;
-    border: none;
-    font-family: 'Inter';
-    font-style: normal;
-    font-size: 40px;
-    color: #0A3871;
-    outline: none;
-    margin-top: 7%;
+    justify-content: space-evenly;
 }
 
 .newGame{
@@ -176,6 +202,7 @@ font-style: normal;
     font-weight: 400;
     font-family: 'Inter';
     font-style: normal;
+    margin-left: 1em;
 
 }
 
@@ -196,6 +223,7 @@ font-style: normal;
     font-weight: 400;
     font-family: 'Inter';
     font-style: normal;
+    margin-right: 1em;
 }
     .Return:hover{
         cursor: pointer;
