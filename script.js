@@ -14,6 +14,7 @@ let secretWord = randomWord();
 let usedLetters = [];
 let counter = 0;
 let victory = false;
+let addStatus = false;
 
 
 
@@ -43,7 +44,7 @@ function referStartGame(){
     word_page.style.display="none";
     game.style.display="flex";
     counter = 0;
-    chances.innerHTML = counter + "/6 Oportunidades";
+    chances.innerHTML = "0/6 Oportunidades";
     usedLetters = [];
     secretWord = randomWord();
     crearPalabra(secretWord);    
@@ -71,14 +72,21 @@ gameovers.style.display = "flex";
 // FUNCTIONS_ADD_WORD
 
 function pushwordButt(){
-    pushword(word_adder.value);
-    alert("word " + words.slice(-1) + " Was added");
-    referStartGame();
+
+    if(isAZ.test(word_adder.value) && word_adder.value.length > 2){
+        pushword(word_adder.value);
+        alert("word " + words.slice(-1) + " Was added");
+        referStartGame();
+    }else{ 
+    alert("Error, Ingrese una palabra que sea superior a dos");
+    word_adder.value = "";
+    }
 }
 
 function pushword(newword){
-words.push(newword);
-
+    
+    words.push(newword);
+    
 }
 
 function randomWord(){
@@ -137,6 +145,7 @@ function teclaFuncion(key) {
     
     if (victory == true) {
         repeatgame();
+        counter = 0;
         alert("Ganaste!");
         
         
@@ -154,6 +163,7 @@ function showRepeat(letra) {
     if (counter == 6) {
         return
     } 
+    
     repeatedLetters.innerHTML += " " + letra;    
 }
 
@@ -172,18 +182,13 @@ function repeatgame(){
             letraI.remove();
         
     }
-
+    chances.innerHTML =  "0/6 Oportunidades";
     counter = 0;
     usedLetters = [];
     secretWord = randomWord();
     crearPalabra(secretWord);
     victory = false;
         
-    
-    
-    
-
-
 }
 
 // Comprobar la victoria
@@ -207,7 +212,11 @@ function comprobarVictoria() {
 function mistakes(){
     if(counter < 6){
         counter++;
+       
         chances.innerHTML = counter + "/6 Oportunidades";
+
+        
+
 
         console.log(counter);
         
@@ -237,7 +246,6 @@ function mistakes(){
 
     if(counter == 6){
         document.getElementById("#game_image").src = "Hangman-07.png";
-        chances.innerHTML = "/6"
 
         showGameOver();
 

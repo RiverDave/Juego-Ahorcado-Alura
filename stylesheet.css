@@ -175,14 +175,18 @@ justify-content: center;
 margin: 1.5rem;
 font-size: 3rem;
 gap: 1rem;
-font: bold;
 }
 
 .Word p{
+    font-size: 48px;
+    color: #0A3871;
+    font-family: 'Inter';
+    font-style: normal;
     padding: 0 0.5rem;
     border-bottom: 2px solid #0A3871;
     min-width: 3rem;
-    min-height: 3rem;
+    min-height: 4rem;
+    
 }
 
 
@@ -190,15 +194,16 @@ font: bold;
 display: flex;
 justify-content: center;
 text-align: center;
-font-weight: bold;
 padding: 2rem;
-font-size: 3rem;
+font-size: 2rem;
+opacity: 0.5;
+font-family: 'Inter';
+font-style: normal;
+
 
 }
 
-    .misses p{
-        opacity: 0.5;
-    }
+   
 
 .buttons3{
     display: flex;
