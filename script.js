@@ -2,9 +2,19 @@ const logo = document.querySelector(".logo");
 const main_menu = document.querySelector("#menu");
 const word_page = document.querySelector(".add-word-part");
 const game = document.querySelector(".game");
-const words = ["Escribir","Programar","Dedicacion","Estudiar"];
+const gameovers = document.querySelector(".gameovers");
+const chances = document.querySelector("#countin");
+const isAZ = RegExp('[A-ZÑa-zñ]');
 const word_adder = document.querySelector("#addinword");
-const letter_adder = document.querySelector("#letter-game");
+const showedWord = document.querySelector(".Word");
+const repeatedLetters = document.querySelector(".misses");
+const image = document.querySelector("#game_image");
+let words = ["ESCRIBIR","JAVA","PROGRAMAR","DESAFIO","DESTREZA","DIFICULTAD","HTML"];
+let secretWord = randomWord();
+let usedLetters = [];
+let counter = 0;
+let victory = false;
+
 
 
 //BUTTONS
@@ -13,6 +23,7 @@ const addwordbutt = document.querySelector("#add-word-db");
 const savePlaybutt = document.querySelector("#save-play");
 const goBackbutt = document.querySelector("#go-back");
 const go_back = document.querySelector("#re-turn");
+const tryagainbutt = document.querySelector("#tryagainbutt");
 
 
 //ON_CLICKS_NAVIGATION
@@ -22,6 +33,7 @@ addwordbutt.onclick = referAddword;
 savePlaybutt.onclick = pushwordButt;
 goBackbutt.onclick = Refresh;
 go_back.onclick = re_turn;
+tryagainbutt.onclick = Refresh;
 
 
 // FUNCTIONS_DIV_NAVIGATION
@@ -30,8 +42,18 @@ function referStartGame(){
     main_menu.style.display="none";
     word_page.style.display="none";
     game.style.display="flex";
-    letter_adder.value = words[Math.floor(Math.random()*words.length)]
+    counter = 0;
+    chances.innerHTML = counter + "/6 Oportunidades";
+    usedLetters = [];
+    secretWord = randomWord();
+    crearPalabra(secretWord);    
+    document.addEventListener('keydown', function (e){
+        let key = e.key.toUpperCase();
+        teclaFuncion(key);
+        console.log(key);
+    })
 }
+
 function referAddword(){
     main_menu.style.display="none";
     word_page.style.display="grid";
@@ -40,11 +62,17 @@ function re_turn(){
     Refresh();
 }
 
+function showGameOver(){
+game.style.display = "none";
+gameovers.style.display = "flex";
+
+}
+
 // FUNCTIONS_ADD_WORD
 
 function pushwordButt(){
     pushword(word_adder.value);
-    alert("word " + words[4] + " Was added");
+    alert("word " + words.slice(-1) + " Was added");
     referStartGame();
 }
 
@@ -53,7 +81,183 @@ words.push(newword);
 
 }
 
-// Key listener
+function randomWord(){
+    return words[Math.floor(Math.random() * (words.length))].toUpperCase();
+}
+
+
+
+//LOGIC_FUNCTIONS 
+
+function crearPalabra(nuevaPalabra) {
+    for(let i = 0; i < nuevaPalabra.length; i++) {
+        const letra = document.createElement('P');
+        letra.setAttribute("id","letra" + i);
+        showedWord.appendChild(letra);
+        }
+}
+
+function insertarLetra(nuevaPalabra) {
+    if (counter == 6) {
+        return
+    } else {
+    for(let i = 0; i < secretWord.length; i++) {
+        let letraI = document.querySelector("#letra" + i);
+        if (secretWord[i] == nuevaPalabra) {
+            letraI.innerHTML = secretWord[i];
+        }
+
+       
+    }}
+}
+
+
+function teclaFuncion(key) {
+    let contador = 0;
+    if (key.length > 1 || !isAZ.test(key) || victory == true){ 
+        return;
+    }
+
+    
+    
+    for (const element of usedLetters) {
+        if (key == element) {
+            return;
+        }
+    }
+    for (let i = 0; secretWord.length > i; i++) {
+        if (secretWord[i] == key && contador == 0) {
+            contador++;
+            usedLetters.push(key);
+            insertarLetra(key);
+            break;
+        }
+    }
+    comprobarVictoria();
+    
+    if (victory == true) {
+        repeatgame();
+        alert("Ganaste!");
+        
+        
+    }
+    if (contador == 0) {
+        mistakes();
+        usedLetters.push(key);
+        showRepeat(key);
+        
+        
+    }
+}
+
+function showRepeat(letra) {
+    if (counter == 6) {
+        return
+    } 
+    repeatedLetters.innerHTML += " " + letra;    
+}
+
+
+// Repeat the game
+
+function repeatgame(){
+
+    document.getElementById("#game_image").src = "Hangman-01.png";
+
+    repeatedLetters.innerHTML = "";
+
+    for(let i = 0; i < secretWord.length; i++) {
+        let letraI = document.querySelector("#letra" + i);
+        
+            letraI.remove();
+        
+    }
+
+    counter = 0;
+    usedLetters = [];
+    secretWord = randomWord();
+    crearPalabra(secretWord);
+    victory = false;
+        
+    
+    
+    
+
+
+}
+
+// Comprobar la victoria
+function comprobarVictoria() {
+     victory = true;
+    let palabrasVacias = 0;
+    for(let i = 0; i < secretWord.length; i++) {
+        let letraI = document.querySelector("#letra" + i);
+        if (letraI.textContent == "") {
+            palabrasVacias++;
+        }
+    }
+    if (palabrasVacias > 0) {
+         victory = false;
+    }
+    return victory;
+}
+
+//errors
+
+function mistakes(){
+    if(counter < 6){
+        counter++;
+        chances.innerHTML = counter + "/6 Oportunidades";
+
+        console.log(counter);
+        
+        
+    }
+
+    if(counter == 1){
+        document.getElementById("#game_image").src = "Hangman-02.png";
+    }
+
+    if(counter == 2){
+        document.getElementById("#game_image").src = "Hangman-03.png";
+    }
+
+    if(counter == 3){
+        document.getElementById("#game_image").src = "Hangman-04.png";
+    }
+
+    if(counter == 4){
+        document.getElementById("#game_image").src = "Hangman-05.png";
+    }
+
+    if(counter == 5){
+        document.getElementById("#game_image").src = "Hangman-06.png";
+        
+    }
+
+    if(counter == 6){
+        document.getElementById("#game_image").src = "Hangman-07.png";
+        chances.innerHTML = "/6"
+
+        showGameOver();
+
+        
+    }
+
+    
+
+   
+
+   
+
+    
+
+    
+}
+
+
+
+
 
 
 
@@ -67,5 +271,6 @@ words.push(newword);
 
 function Refresh() {
     window.parent.location = window.parent.location.href;
+
 } 
 
