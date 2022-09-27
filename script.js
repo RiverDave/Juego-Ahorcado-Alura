@@ -82,7 +82,7 @@ function pushwordButt(){
         alert("word " + words.slice(-1) + " Was added");
         referStartGame();
     }else{ 
-    alert("Error, Ingrese una palabra que sea superior a dos");
+    alert("Error, Ingrese una palabra que sea superior a dos digitos");
     word_adder.value = "";
     }
 }
