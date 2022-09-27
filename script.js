@@ -25,6 +25,8 @@ const savePlaybutt = document.querySelector("#save-play");
 const goBackbutt = document.querySelector("#go-back");
 const go_back = document.querySelector("#re-turn");
 const tryagainbutt = document.querySelector("#tryagainbutt");
+const newgamebutt = document.querySelector("#new-game");
+
 
 
 //ON_CLICKS_NAVIGATION
@@ -35,6 +37,7 @@ savePlaybutt.onclick = pushwordButt;
 goBackbutt.onclick = Refresh;
 go_back.onclick = re_turn;
 tryagainbutt.onclick = Refresh;
+newgamebutt.onclick = repeatgame;
 
 
 // FUNCTIONS_DIV_NAVIGATION
@@ -66,6 +69,7 @@ function re_turn(){
 function showGameOver(){
 game.style.display = "none";
 gameovers.style.display = "flex";
+alert("Fin del juego");
 
 }
 
@@ -146,7 +150,7 @@ function teclaFuncion(key) {
     if (victory == true) {
         repeatgame();
         counter = 0;
-        alert("Ganaste!");
+        alert("Ganaste, Felicidades!");
         
         
     }
