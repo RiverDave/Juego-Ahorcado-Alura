@@ -138,7 +138,7 @@ function teclaFuncion(key) {
         }
     }
     for (let i = 0; secretWord.length > i; i++) {
-        if (secretWord[i] == key && contador == 0) {
+        if (secretWord[i] == key ) {
             contador++;
             usedLetters.push(key);
             insertarLetra(key);
@@ -161,6 +161,7 @@ function teclaFuncion(key) {
         
         
     }
+    console.log(contador);
 }
 
 function showRepeat(letra) {
